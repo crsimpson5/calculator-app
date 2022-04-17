@@ -1,11 +1,20 @@
+const savedTheme = localStorage.getItem("theme");
 const radioButtons = document.querySelectorAll("input[name='theme'");
 
-if (
+function setTheme(theme) {
+  document.body.dataset.theme = theme;
+  localStorage.setItem("theme", theme);
+}
+
+if (savedTheme) {
+  setTheme(savedTheme);
+  document.getElementById(`theme-${savedTheme}`).checked = true;
+} else if (
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: light)").matches
 ) {
   document.getElementById("theme-light").checked = true;
-  document.body.dataset.theme = "light";
+  setTheme("light");
 }
 
 // Enable transitions after page loads
@@ -17,7 +26,7 @@ setTimeout(() => {
 
 function handleClick(e) {
   const theme = e.target.value;
-  document.body.dataset.theme = theme;
+  setTheme(theme);
 }
 
 radioButtons.forEach((btn) => btn.addEventListener("click", handleClick));

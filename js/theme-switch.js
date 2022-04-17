@@ -1,26 +1,23 @@
-const themeSwitch = document.querySelector(".theme-switch");
+const radioButtons = document.querySelectorAll("input[name='theme'");
 
 if (
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: light)").matches
 ) {
-  setTheme("light");
+  document.getElementById("theme-light").checked = true;
+  document.body.dataset.theme = "light";
 }
 
-function setTheme(theme) {
-  themeSwitch.dataset.theme = theme;
+// Enable transitions after page loads
+setTimeout(() => {
+  document.querySelectorAll(".prevent-transition").forEach((el) => {
+    el.classList.remove("prevent-transition");
+  });
+}, 100);
+
+function handleClick(e) {
+  const theme = e.target.value;
   document.body.dataset.theme = theme;
 }
 
-themeSwitch.addEventListener("click", () => {
-  const theme = themeSwitch.dataset.theme;
-  let newTheme = "dark";
-
-  if (theme === "dark") {
-    newTheme = "light";
-  } else if (theme === "light") {
-    newTheme = "purple";
-  }
-
-  setTheme(newTheme);
-});
+radioButtons.forEach((btn) => btn.addEventListener("click", handleClick));

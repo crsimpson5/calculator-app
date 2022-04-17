@@ -103,74 +103,94 @@ h1 {
   font-size: 2.5rem;
 }
 
+/* Utilities */
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.prevent-transition {
+  transition: all 0s !important;
+}
+
 /* Theme Switch */
 
 .theme-control {
-  --switch-width: 4rem;
-  --slider-width: 1rem;
-  --padding: 0.25rem;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.375em 0.25em;
-  align-items: center;
+  border: 0;
+  padding: 0;
+  margin: 0;
   font-size: 0.875rem;
 }
 
+.theme-control legend {
+  opacity: 0;
+  font-size: 2px;
+  position: absolute;
+}
+
 .theme-text {
-  grid-row: 2;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.theme-numbers {
-  grid-column: 2;
-  display: flex;
-  justify-content: space-between;
-  padding-inline: var(--padding);
-  text-align: center;
-}
-
-.theme-numbers > * {
-  width: var(--slider-width);
-}
-
-.theme-switch {
-  border: none;
-  background: var(--keypad-bg);
-  display: flex;
-  align-items: center;
-  width: var(--switch-width);
-  height: calc(var(--slider-width) + var(--padding) * 2);
-  border-radius: 100px;
-  position: relative;
-}
-
-.theme-switch:hover {
-  cursor: pointer;
-}
-
-.slider {
-  display: inline-block;
-  background: var(--accent-key-bg);
-  width: var(--slider-width);
-  aspect-ratio: 1;
-  border-radius: 100px;
+.theme-control input {
+  opacity: 0;
   position: absolute;
-  transition: all 250ms;
 }
 
-.theme-switch[data-theme="dark"] .slider {
-  left: var(--padding);
+.theme-control label {
+  position: absolute;
+  z-index: 2;
+  padding: 0.25em 0.5em 2.25em 0.5em;
+  top: -1.5rem;
 }
 
-.theme-switch[data-theme="light"] .slider {
+.theme-control label:nth-of-type(1) {
+  left: 0.75rem;
+  transform: translateX(-50%);
+}
+.theme-control label:nth-of-type(2) {
   left: 50%;
   transform: translateX(-50%);
 }
+.theme-control label:nth-of-type(3) {
+  left: calc(100% - 0.75rem);
+  transform: translateX(-50%);
+}
 
-.theme-switch[data-theme="purple"] .slider {
-  left: calc(100% - var(--padding));
+.theme-switch {
+  position: relative;
+  background: var(--keypad-bg);
+  width: 4rem;
+  height: 1.5rem;
+  border-radius: 100px;
+}
+
+.theme-switch:focus-within {
+  box-shadow: 0 0 0 2px black, 0 0 0 4px white;
+}
+
+.theme-slider {
+  position: absolute;
+  background: var(--accent-key-bg);
+  width: 1.5rem;
+  aspect-ratio: 1;
+  border-radius: 100px;
+  border: 4px solid var(--keypad-bg);
+  transition: left 250ms, transform 250ms, background 250ms;
+}
+
+input[value="dark"]:checked ~ .theme-slider {
+  left: 0;
+}
+input[value="light"]:checked ~ .theme-slider {
+  left: 50%;
+  transform: translateX(-50%);
+}
+input[value="purple"]:checked ~ .theme-slider {
+  left: 100%;
   transform: translateX(-100%);
 }
 

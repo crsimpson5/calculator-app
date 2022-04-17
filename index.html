@@ -17,16 +17,23 @@
   <div class="calculator">
     <header class="header">
       <h1>calc</h1>
-      <div class="theme-control">
-        <span class="theme-text">Theme</span>
-        <div class="theme-numbers">
-          <span>1</span><span>2</span><span>3</span>
-        </div>
-        <button class="theme-switch" data-theme="dark">
-          <span class="slider"></span>
-        </button>
-      </div>
 
+      <fieldset class="theme-control">
+        <legend>Theme switch</legend>
+
+        <div class="flex-row">
+          <span class="theme-text" aria-hidden>Theme</span>
+          <div class="theme-switch">
+            <label for="theme-dark">1</label>
+            <input type="radio" name="theme" id="theme-dark" value="dark" checked>
+            <label for="theme-light">2</label>
+            <input type="radio" name="theme" id="theme-light" value="light">
+            <label for="theme-purple">3</label>
+            <input type="radio" name="theme" id="theme-purple" value="purple">
+            <div class="theme-slider prevent-transition"></div>
+          </div>
+        </div>
+      </fieldset>
     </header>
 
     <main>

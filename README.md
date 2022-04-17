@@ -35,3 +35,4 @@ For this project I learned how to create themes using CSS custom properties. I a
 ### Useful Resources
 
 - [Three way toggle by Lokesh Suthar](https://codepen.io/magnus16/pen/grzqMz) - gave me inspiration for creating my toggle switch
+- [Radio Toggle Switch by Scott O'Hara](https://codepen.io/scottohara/pen/zLZwNv) - another great toggle switch

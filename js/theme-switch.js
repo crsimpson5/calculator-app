@@ -6,10 +6,13 @@ function setTheme(theme) {
   localStorage.setItem("theme", theme);
 }
 
+// Load saved theme
 if (savedTheme) {
   setTheme(savedTheme);
   document.getElementById(`theme-${savedTheme}`).checked = true;
-} else if (
+} 
+// Set theme to light if prefers-color-scheme: light
+else if (
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: light)").matches
 ) {

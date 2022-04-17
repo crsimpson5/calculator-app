@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="calculator">
+    <header class="header">
+      <h1>calc</h1>
+      <div class="theme-control">
+        <span class="theme-text">Theme</span>
+        <div class="theme-numbers">
+          <span>1</span><span>2</span><span>3</span>
+        </div>
+        <button class="theme-switch" data-theme="dark">
+          <span class="slider"></span>
+        </button>
+      </div>
+
+    </header>
+
+    <main>
+      <div class="screen"></div>
+      <div class="keypad">
+        <button class="key" data-num="7"><span>7</span></button>
+        <button class="key" data-num="8">8</button>
+        <button class="key" data-num="9">9</button>
+        <button class="key key-secondary" data-action="delete">DEL</button>
+        <button class="key" data-num="4">4</button>
+        <button class="key" data-num="5">5</button>
+        <button class="key" data-num="6">6</button>
+        <button class="key" data-operation="add">+</button>
+        <button class="key" data-num="1">1</button>
+        <button class="key" data-num="2">2</button>
+        <button class="key" data-num="3">3</button>
+        <button class="key" data-operation="subtract">-</button>
+        <button class="key" data-action="decimal">.</button>
+        <button class="key" data-num="0">0</button>
+        <button class="key" data-operation="divide">/</button>
+        <button class="key" data-operation="multiply">x</button>
+        <button class="key key-secondary key-wide" data-action="reset">RESET</button>
+        <button class="key key-accent key-wide" data-action="equals">=</button>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/crsimpson5">Curtis Simpson</a>.
+    </div>
+  </footer>
+
+  <script src="js/calculator.js"></script>
+  <script src="js/theme-switch.js"></script>
+</body>
+
+</html>
